@@ -2,7 +2,7 @@
 
 **AIM:** 
 
-To implement  JK flipflop using verilog and validating their functionality using their functional tables
+To implement JK flipflop using verilog and validating their functionality using their functional tables
 
 **SOFTWARE REQUIRED:**
 
@@ -49,9 +49,42 @@ Step 6: Open in RTL viewers to get RTL diagram output.
 /* Program for flipflops and verify its truth table in quartus using Verilog programming. 
 Developed by: SURYAMALARV RegisterNumber:212223230224
 */
+```
+module ex07(q, qb, j, k, clock, reset); 
+  input j, k, clock, reset; 
+  output reg q, qb; 
 
+  always @ (posedge clock) begin 
+    if (!reset) begin 
+      q <= q; 
+      qb <= qb; 
+    end 
+    else begin 
+      if (j == 0 && k == 0) begin 
+        q <= q; 
+        qb <= qb; 
+      end 
+      else if (j != k) begin 
+        q <= j; 
+        qb <= k; 
+      end 
+      else if (j == 1 && k == 1) begin 
+        q <= ~q; 
+        qb <= ~qb; 
+      end 
+    end 
+  end 
+endmodule
+```
 **RTL LOGIC FOR FLIPFLOPS**
+
+
+
 ![image](https://github.com/suryamalarv/JKFLIPFLOP-USING-IF-ELSE/assets/145742486/900b8f7f-26c6-4781-ad10-6b6ccc642a48)
+
+**Timing diagrams for flip flop**
+![timing diagram for flip flops](https://github.com/suryamalarv/JKFLIPFLOP-USING-IF-ELSE/assets/145742486/3fe6b7e6-3b71-4864-ad6d-d572660024a3)
 
 
 **RESULTS**
+Thus JK flipflop using verilog and validating their functionality using their functional tables.
